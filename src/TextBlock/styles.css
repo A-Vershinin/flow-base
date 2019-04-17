@@ -1,0 +1,13 @@
+.text-block {
+  display: inline-block;
+  vertical-align: top;
+  float: left;
+  width: 150px;
+  padding: 0 10px;
+  border: 1px solid #9d62b0;
+}
+
+.text-block p {
+  font-size: 24px;
+  color: #9d62b0;
+}

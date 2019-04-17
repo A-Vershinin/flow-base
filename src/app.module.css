@@ -1,0 +1,17 @@
+.app {
+  width: 600px;
+  /* height: 400px; */
+  margin: 0 auto;
+  padding: 10px;
+  border: 2px solid black;
+}
+
+.title {
+  font-size: 24px;
+  color: #df6123;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}

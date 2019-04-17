@@ -1,0 +1,19 @@
+.modal {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 300px;
+  float: right;
+  padding: 0 10px 15px;
+  border: 1px solid green;
+  font-size: 16px;
+
+}
+
+.modal .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal button {
+  font-size: 20px;
+}

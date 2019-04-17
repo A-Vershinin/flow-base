@@ -1,0 +1,17 @@
+[ignore]
+.*/node_modules
+.*/public
+
+[include]
+
+[libs]
+./src/types/global.js
+
+[lints]
+all=warn
+
+[options]
+module.name_mapper='^\(.*\)\.css$' -> 'CSSModule'
+module.system=haste
+
+[strict]
