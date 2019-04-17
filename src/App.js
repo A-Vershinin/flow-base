@@ -1,7 +1,8 @@
 // @flow
 import React, { Component } from "react";
 import st from "./app.module.css";
-import "./data";
+// import "./data";
+import './basic';
 import TextBlock from "./TextBlock";
 import Modal from "./Modal";
 import ListOfBrands from "./List";
