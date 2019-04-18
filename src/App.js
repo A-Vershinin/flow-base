@@ -1,4 +1,4 @@
-// @flow
+/* @flow */
 import React, { Component } from "react";
 import st from "./app.module.css";
 import "./data";

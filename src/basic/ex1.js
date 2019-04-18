@@ -55,7 +55,7 @@ function square(x: number, y: number) {
 square(4, 3);
 
 /* Пример функции у которой 2й параметр не обязально должен быть и его
-тип должен быть number */
+тип должен быть number, undefined, null */
 const squareNoReturn = (x: number, y: ?number): void => {};
 squareNoReturn(5, 5);
 
