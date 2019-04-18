@@ -22,8 +22,11 @@ const isBoolean: boolean = false;
 
 // Массивы
 // пустые массивы не имеют типа, поэтому Object -> Array не правильно
-const arrObject: Object = [];
+const arr: Object = [];
 // const arrArrayType: Array = []; // ошибка
+
+// Массив элементы которого строки только строки
+const arrMessages: Array<string> = ["hello", "world", "!"];
 
 // Объекты
 const emptyObject: Object = {};
@@ -40,16 +43,22 @@ emptyFuncArrow();
 function emptyFuncExpresion(): void {
   console.log("emptyFuncExpresion -->: Flow in func expression");
 }
-emptyFuncExpresion()
+emptyFuncExpresion();
 
 // Тип параметра string, а тип возвращаемой функции Function
-const applySearchTerm = (searchTerm: string)  => ({ searchTerm });
-applySearchTerm('22');
+const applySearchTerm = (searchTerm: string) => ({ searchTerm });
+applySearchTerm("22");
 
-function square(x: number, y: number) { return x + y; }
+function square(x: number, y: number) {
+  return x + y;
+}
 square(4, 3);
 
 /* Пример функции у которой 2й параметр не обязально должен быть и его
 тип должен быть number */
 const squareNoReturn = (x: number, y: ?number): void => {};
 squareNoReturn(5, 5);
+
+const calculateArea = (radius: number): number => {
+  return 3.14 * radius * radius;
+};

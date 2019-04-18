@@ -1,10 +1,20 @@
-// @flow
-import React, { Component } from "react";
+/* @flow */
+import * as React from "react";
 import st from "./styles.module.css";
 
+type Props = {
+  text: string
+};
+type State = {
+  open: boolean
+};
 
-class ModalComponent extends Component {
-  constructor(props) {
+class ModalComponent extends React.Component<Props, State> {
+
+  static defaultProps = {
+    text: '',
+  }
+  constructor(props: Props) {
     super(props);
     this.state = {
       open: false
@@ -12,8 +22,9 @@ class ModalComponent extends Component {
 
     this.placeholder = "Welcome to open Modal!.";
   }
+  placeholder: string; // типизация для поля класса
 
-  showText = (e: SyntheticKeyboardEvent<>):void => {
+  showText = (e: SyntheticKeyboardEvent<>): void => {
     this.setState({ open: !this.state.open });
   };
 

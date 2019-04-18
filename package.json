@@ -8,6 +8,7 @@
     "react-scripts": "2.1.8"
   },
   "devDependencies": {
+    "eslint-plugin-flowtype": "^2.50.3",
     "flow-bin": "^0.96.0"
   },
   "scripts": {
