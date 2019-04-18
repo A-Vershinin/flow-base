@@ -1,13 +1,14 @@
 /* @flow */
 import React from "react";
-import './styles.css';
-import type { Node } from 'react';
+import { string, bool } from "prop-types";
+import "./styles.css";
+import type { Node } from "react";
 
-type Props = {
+type Props = {|
   id: string,
   name: string,
-  showMessage: bool,
-}
+  showMessage: boolean
+|};
 
 const TextBlock = ({ id, name, showMessage }: Props): Node => (
   <div className="text-block">
@@ -16,5 +17,17 @@ const TextBlock = ({ id, name, showMessage }: Props): Node => (
     {showMessage && <p> {`Hello ${name}!`}</p>}
   </div>
 );
+
+TextBlock.propTypes = {
+  id: string,
+  name: string,
+  showMessage: bool
+};
+
+TextBlock.defaultProps = {
+  id: "",
+  name: "",
+  showMessage: false
+};
 
 export default TextBlock;

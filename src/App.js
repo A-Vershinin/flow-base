@@ -1,19 +1,24 @@
 /* @flow */
 import React, { Component } from "react";
 import st from "./app.module.css";
-import './basic';
+import "./basic";
 import TextBlock from "./TextBlock";
 import Modal from "./Modal";
 import ListOfBrands from "./List";
+import Foo from "./Foo";
 
-const brandsList = [
+type Brand = { id: number, name: string };
+type BasicState<B> = {| brands: Array<B> |};
+type State = BasicState<Brand>;
+
+const brandsList: Array<Brand> = [
   { id: 1, name: "Ralph Lauren" },
   { id: 2, name: "Tommy Hilfiger" },
   { id: 3, name: "Calvin Klein" },
   { id: 4, name: "Levi Strauss & Co." }
 ];
 
-class App extends Component {
+class App extends Component<any, State> {
   state = {
     brands: brandsList
   };
@@ -39,10 +44,9 @@ class App extends Component {
           />
         </div>
         <hr />
-        <ListOfBrands
-          items={brands}
-          onMixBrands={this.getRandomList}
-        />
+        <ListOfBrands items={brands} onMixBrands={this.getRandomList} />
+
+        <Foo />
       </div>
     );
   }

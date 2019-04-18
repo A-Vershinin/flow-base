@@ -1,18 +1,18 @@
 /* @flow */
-import * as React from "react";
-import { string } from "prop-types";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import st from "./styles.module.css";
 
-type Props = {
+type Props = {|
   text: string
-};
-type State = {
+|};
+type State = {|
   open: boolean
-};
+|};
 
-class ModalComponent extends React.Component<Props, State> {
-  static propTypes = {
-    text: string
+class ModalComponent extends Component<Props, State> {
+  static propTypes: Props = {
+    text: PropTypes.string
   };
 
   static defaultProps = {
@@ -27,6 +27,7 @@ class ModalComponent extends React.Component<Props, State> {
 
     this.placeholder = "Welcome to open Modal!.";
   }
+
   placeholder: string; // типизация для поля класса
 
   showText = (e: SyntheticKeyboardEvent<>): void => {
@@ -43,7 +44,7 @@ class ModalComponent extends React.Component<Props, State> {
       <div className={st.modal}>
         <h3>{this.placeholder} This title of modal component</h3>
         <p>
-          Modal show text: <b>{`${open}`}</b>
+          Modal show text: <b>{`${String(open)}`}</b>
         </p>
         <p>Modal desctiption: {open ? text : ""} </p>
         <div className={st.row}>

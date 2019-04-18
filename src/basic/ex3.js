@@ -45,10 +45,12 @@ type Model = {
 */
 
 type AppState<E, D>
-  = { type: 'NotFetched' }
+  = {
+    type: 'NotFetched' }
   | { type: 'Fetching' }
   | { type: 'Failure', error: E }
-  | { type: 'Success', paymentMethods: Array<D> };
+  | { type: 'Success', paymentMethods: Array<D>
+};
 
 /*
 Мы использовали тип непересекающегося множества для установки AppState в одно
