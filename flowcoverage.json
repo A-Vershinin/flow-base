@@ -1,0 +1,12 @@
+{
+  "concurrentFiles": 1,
+  "globExcludePatterns": [
+    "node_modules/**"
+
+  ],
+  "globIncludePatterns": [
+    "src/**/*.js"
+  ],
+  "threshold": 100,
+  "reportTypes": ["text"]
+}
