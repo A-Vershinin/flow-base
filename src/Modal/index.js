@@ -1,5 +1,6 @@
 /* @flow */
 import * as React from "react";
+import { string } from "prop-types";
 import st from "./styles.module.css";
 
 type Props = {
@@ -10,10 +11,14 @@ type State = {
 };
 
 class ModalComponent extends React.Component<Props, State> {
+  static propTypes = {
+    text: string
+  };
 
   static defaultProps = {
-    text: '',
-  }
+    text: ""
+  };
+
   constructor(props: Props) {
     super(props);
     this.state = {
