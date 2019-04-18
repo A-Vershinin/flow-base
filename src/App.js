@@ -7,7 +7,7 @@ import Modal from "./Modal";
 import ListOfBrands from "./List";
 import Foo from "./Foo";
 
-type Brand = { id: number, name: string };
+export type Brand = { id: number, name: string };
 type BasicState<B> = {| brands: Array<B> |};
 type State = BasicState<Brand>;
 
@@ -45,7 +45,6 @@ class App extends Component<any, State> {
         </div>
         <hr />
         <ListOfBrands items={brands} onMixBrands={this.getRandomList} />
-
         <Foo />
       </div>
     );

@@ -4,8 +4,3 @@ declare module CSSModule {
   declare var exports: { [key: string]: string };
   declare export default typeof exports;
 }
-
-// declare module PropTypes {
-//   declare var exports: { [key: string]: string };
-//   declare export default typeof PropTypes;
-// }

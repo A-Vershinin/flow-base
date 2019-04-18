@@ -1,17 +1,18 @@
 // @flow
 import React, { Component } from "react";
 import "./styles.css";
+import type { Brand } from "../App";
 
 type AppState = {|
-  todos: Array<any>
+  todos: Array<Brand>
 |};
 
-const flipCompleted: (item: any) => * = item => ({
-  ...item,
-  completed: !item.completed
-});
+type Props = {|
+  items: Array<Brand>,
+  onMixBrands: () => void
+|};
 
-class ListOfBrands extends Component<any, AppState> {
+class ListOfBrands extends Component<Props, AppState> {
   state = {
     todos: []
   };

@@ -8,11 +8,10 @@
 
 [libs]
 
-
 [lints]
 all=warn
 
 [options]
+module.name_mapper='^.*\.css$' -> 'css-module-flow'
 module.system=haste
-
 [strict]
