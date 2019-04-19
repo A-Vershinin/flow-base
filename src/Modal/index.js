@@ -11,10 +11,7 @@ type State = {|
 |};
 
 class ModalComponent extends Component<Props, State> {
-  static propTypes: Props = {
-    text: PropTypes.string
-  };
-
+  static propTypes: Props;
   static defaultProps = {
     text: ""
   };

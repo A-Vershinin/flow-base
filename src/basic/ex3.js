@@ -44,8 +44,7 @@ type Model = {
 Перепишем модель чтобы она принимала одно из этих четырёх значений, и только их.
 */
 
-type AppState<E, D>
-  = {
+type AppState<E, D> = {
     type: 'NotFetched' }
   | { type: 'Fetching' }
   | { type: 'Failure', error: E }
