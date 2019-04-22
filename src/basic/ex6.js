@@ -50,7 +50,7 @@ type State = {|
   +error: ?string
 |};
 
-const handleStartVerification = (state: State) => ({
+const handleStartVerification = (state: State, action: BaseAction) => ({
   ...state,
   loaded: false
 });

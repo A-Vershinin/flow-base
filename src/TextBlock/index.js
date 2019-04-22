@@ -21,7 +21,7 @@ const TextBlock = ({ id, name, showMessage }: Props): Node => (
 TextBlock.defaultProps = {
   id: "",
   name: "",
-  showMessage: false,
+  showMessage: false
 };
 
 export default TextBlock;

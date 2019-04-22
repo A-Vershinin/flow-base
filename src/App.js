@@ -5,7 +5,6 @@ import "./basic";
 import TextBlock from "./TextBlock";
 import Modal from "./Modal";
 import ListOfBrands from "./List";
-import Foo from "./Foo";
 
 export type Brand = { id: number, name: string };
 type BasicState<B> = {| brands: Array<B> |};
@@ -45,7 +44,6 @@ class App extends Component<any, State> {
         </div>
         <hr />
         <ListOfBrands items={brands} onMixBrands={this.getRandomList} />
-        <Foo />
       </div>
     );
   }
