@@ -40,7 +40,7 @@ type PromiseAction = Promise<Action>;
 которая подключена в сторе и будет вызвана при диспатче экшена в контейнере.
 Thunk, Saga, Promise. Для простоты используем пропис сейчас.
 */
-type Dispatch = (action: Action | Promise<Action>) => any;
+type Dispatch = (action: Action | PromiseAction | Array<Action>) => any;
 
 const foo = (value: string): FooAction => ({
   type: "FOO",

@@ -4,6 +4,7 @@
     "ecmaVersion": 2018
   },
   "rules": {
-    "no-unused-vars": 0
+    "no-unused-vars": 0,
+    "flowtype/require-valid-file-annotation": 0
   }
 }

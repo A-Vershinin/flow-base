@@ -8,6 +8,7 @@
 
 [libs]
 
+
 [lints]
 all=warn
 
@@ -15,7 +16,7 @@ all=warn
 module.name_mapper='^.*\.css$' -> 'css-module-flow'
 module.system=haste
 
-module.name_mapper='&.*\.js' -> 'redux-actions'
+
 
 
 [strict]

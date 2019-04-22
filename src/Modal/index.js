@@ -27,7 +27,9 @@ class ModalComponent extends Component<Props, State> {
 
   placeholder: string; // типизация для поля класса
 
-  showText = (e: SyntheticKeyboardEvent<>): void => {
+  showText = (e: SyntheticKeyboardEvent<HTMLButtonElement>): void => {
+    // To access your button instance use `event.currentTarget`.
+    // (event.currentTarget: HTMLButtonElement);
     this.setState({ open: !this.state.open });
   };
 

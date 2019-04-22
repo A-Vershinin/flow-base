@@ -1,20 +1,21 @@
 /* @flow */
 import { createAction, handleActions, type Reducer } from "redux-actions";
+import { bindActionCreators } from "redux";
+// import type { Dispatch } from "redux";
 
 //============ Примеры Reducer and Redux-Action ==============
 
-// Helper-типы экшенов для dispatch
+// Helper-типы экшенов кастомноые для dispatch
 type BaseAction = $ReadOnly<{ type: string, error?: string }>;
 type ActionWithPayload<P> = $ReadOnly<{ ...BaseAction, payload: P }>;
 
-type Action =
+type ActionCustome =
   | { type: "START_VERIFICATION" }
   | { type: "START_VERIFICATION_SUCCESS", payload: { result: {} } }
   | { type: "START_VERIFICATION_FAIL", payload: { message: "" } };
 
-type PromiseAction = Promise<Action>;
-
-type Dispatch = (action: Action | PromiseAction | Array<Action>) => any;
+// type Dispatch = (action: ActionCustome | Array<ActionCustome>) => any;
+type Dispatch = ActionCustome => void;
 
 // helper extact util
 type ExtractReturn<Fn> = $Call<<T>((...Iterable<any>) => T) => T, Fn>;
@@ -24,30 +25,17 @@ type ReduxProps<M, D> = $ReadOnly<{|
   ...ExtractReturn<D>
 |}>;
 
-declare type ActionType = string;
-
-declare type ActionUpdated = {
-  type: ActionType,
-  payload?: any,
-  error?: boolean,
-  meta?: any
-};
-
-declare function createActionType<T, P>(
-  type: ActionType,
-  payloadCreator?: (...args: Array<T>) => P,
-  metaCreator?: Function
-): (...args: Array<T>) => ActionUpdated<P>;
+type UserData = { id: number, name: string };
 
 // Actions
-const startVerification: Action = createAction("START_VERIFICATION");
-const startVerificationSuccess: Action = createAction(
+const startVerification = createAction("START_VERIFICATION");
+const startVerificationSuccess = createAction(
   "START_VERIFICATION_SUCCESS",
-  result => result
+  (result: string) => result
 );
-const startVerificationFail: Action = createAction(
+const startVerificationFail = createAction(
   "START_VERIFICATION_FAIL",
-  message => message
+  (message: string) => message
 );
 
 // Reducer
@@ -86,7 +74,7 @@ const handleVerificationFail = (
   error: action.payload.message
 });
 
-const verificataion: Reducer<State, Action> = handleActions(
+const verificataion: Reducer<State, *> = handleActions(
   {
     [startVerification.toString()]: handleStartVerification,
     [startVerificationSuccess.toString()]: handleVerificationSuccess,
@@ -106,26 +94,35 @@ const rootReducer = {
 };
 
 type GlobalState = $ObjMap<typeof rootReducer, ExtractReturn<*>>;
-type OwnProps = {|
-  // ownProps from container
+type OwnProps = {| /* ownProps from container */ |};
+type Verification = {| id: number, name: string |};
+type MSTPType = {|
+  isAccess: boolean,
+  data: Verification
 |};
 
-const mapStateToProps = (state: GlobalState, props: OwnProps) => ({
-  isAccess: state.access.isAccess
+// Поискать причину почему не покрылись поля
+const mapStateToProps = (state: GlobalState, props: OwnProps): MSTPType => {
+  return {
+    isAccess: state.access.isAccess,
+    data: state.verificataion.data
+  };
+};
+
+/* ========= Несколько вариантов с dispatch  ============ */
+type MDTPType = {| onVerification: () => void |};
+
+/* Первый */
+const mapDispatchToProps = (dispatch: Dispatch, props: OwnProps): MDTPType => ({
+  onVerification: () => dispatch(startVerification())
 });
+
+/* Второй. Варианты типизации mapDispatchToProps если action-ы добавлены
+через bindActionCreators. Дописать */
 
 // const mapDispatchToProps = (
 //   dispatch: Dispatch<BaseAction>,
 //   props: OwnProps
 // ) => ({
-//   onLogin: user => {
-//     dispatch(startVerification());
-//   }
+//   onVerification: (): void => {}
 // });
-
-const mapDispatchToProps = (
-  dispatch: Dispatch<BaseAction>,
-  props: OwnProps
-) => ({
-  onLogin: (): void => {}
-});
