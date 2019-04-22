@@ -37,7 +37,7 @@ type State = {
 };
 type PromiseAction = Promise<Action>;
 /* Для диспатча 2й и другие аргументы это тип функции midlleware
-которая подключена в сторе и будет вызвана при диспатче экшена.
+которая подключена в сторе и будет вызвана при диспатче экшена в контейнере.
 Thunk, Saga, Promise. Для простоты используем пропис сейчас.
 */
 type Dispatch = (action: Action | Promise<Action>) => any;
@@ -78,6 +78,9 @@ function accessControlReducer(
   }
 }
 
+
+// ====================== Глобальный store & redux контейнер ===================
+
 const accountsReducer = () => {};
 
 // RootReducer
@@ -86,27 +89,36 @@ const rootReducer = {
   accountsReducer
 };
 
-type BaseAction = $ReadOnly<{ type: string, error?: string }>;
-
-type OwnProps = {||};
-// helper тип
+// helper тип для вытаскивания вложенных типов
 type ExtractReturn<Fn> = $Call<<T>((...Iterable<any>) => T) => T, Fn>;
 
+// helper тип для пропсов redux
 type ReduxProps<M, D> = $ReadOnly<{|
   ...ExtractReturn<M>,
   ...ExtractReturn<D>
 |}>;
 
-const mapStateToProps = (state, props) => ({
+// глобальный тип стор
+type GlobalState = $ObjMap<typeof rootReducer, ExtractReturn<*>>;
+
+/* Вариант второй глобального стейта с другой helper утилитой
+type $ExtractFunctionReturn = <V>(v: (...args: any) => V) => V;
+type GlobalState = $ObjMap<typeof rootReducer, $ExtractFunctionReturn>;
+*/
+
+type OwnProps = {|
+  // ownProps on container
+|};
+
+const mapStateToProps = (state: GlobalState, props: OwnProps) => ({
   /* ...  */
 });
-const mapDispatchToProps = (dispatch: Dispatch<BaseAction>, props) => ({
+const mapDispatchToProps = (dispatch: Dispatch<Action>, props: OwnProps) => ({
   /* ...  */
 });
 
-type Props = {|
+// тип пропсов контейнера для прокидывания в компонент
+type PropsReduxContainer = {|
   ...OwnProps,
   ...ReduxProps<typeof mapStateToProps, typeof mapDispatchToProps>
 |};
-
-type GlobalState = $ObjMap<typeof rootReducer, ExtractReturn>;

@@ -8,7 +8,7 @@ const initialState = {
   loaded: false,
   data: [],
   error: false
-}
+};
 
 // При типизации стейта приходится дублировать все свойства
 type StateTypes = {| loaded: boolean, data: Array<{}>, error: ?boolean |};

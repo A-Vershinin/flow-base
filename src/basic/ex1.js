@@ -48,8 +48,8 @@ type FooType = {
   $call: (a: number) => number
 };
 declare var processAPI: FooType; // говорим что где-то есть функция process типа FooType
-processAPI(2); // вызвали функцию с аргументом.
-processAPI.dropCache(); // вызвали метод у объекта
+// processAPI(2); // вызвали функцию с аргументом.
+// processAPI.dropCache(); // вызвали метод у объекта
 // processAPI.anotherFunc() // ошибка
 
 // Функции. Типизация аргументов у функции
