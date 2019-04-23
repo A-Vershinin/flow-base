@@ -24,8 +24,13 @@ https://hackernoon.com/redux-flow-type-getting-the-maximum-benefit-from-the-fewe
 https://www.npmjs.com/package/css-module-flow
 https://github.com/skovhus/css-modules-flow-types
 https://hackernoon.com/redux-flow-type-getting-the-maximum-benefit-from-the-fewest-key-strokes-5c006c54ec87
-
-
+https://blog.callstack.io/type-checking-react-and-redux-thunk-with-flow-part-2-206ce5f6e705
+https://medium.freecodecamp.org/using-flow-with-babel-c04fdca8d14d
+https://codeburst.io/getting-started-with-flow-and-nodejs-b8442d3d2e57
+https://github.com/redux-saga/redux-saga/issues/864
+flow-annotation-check
+https://devhints.io/flow
+https://blog.remix.com/working-with-enums-in-flow-529455138fd6
 
 */
 [options]

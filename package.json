@@ -20,7 +20,8 @@
     "flow": "flow",
     "flow:deps": "flow-typed install --skip",
     "flow:file": "flow coverage src/List/index.js --color",
-    "flow:cover": "flow-coverage-report --config ./flowcoverage.json"
+    "flow:cover": "flow-coverage-report --exclude-non-flow --config ./flowcoverage.json",
+    "flow:test": "flow-coverage-report --exclude-non-flow --config ./flowcoverage.json"
   },
   "browserslist": [
     ">0.2%",

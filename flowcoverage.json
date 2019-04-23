@@ -1,12 +1,13 @@
 {
-  "concurrentFiles": 1,
+  "concurrentFiles": 50,
   "globExcludePatterns": [
-    "node_modules/**"
+    "node_modules/**",
+    "flow-typed/**"
 
   ],
   "globIncludePatterns": [
     "src/**/*.js"
   ],
-  "threshold": 100,
+  "threshold": 80,
   "reportTypes": ["text"]
 }
