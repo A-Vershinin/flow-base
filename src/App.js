@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import st from "./app.module.css";
 import "./basic";
-import TextBlock from "./TextBlock";
+import TextBlock from "components/TextBlock";
 import Modal from "./Modal";
 import ListOfBrands from "./List";
 

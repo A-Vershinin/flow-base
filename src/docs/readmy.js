@@ -31,6 +31,8 @@ https://github.com/redux-saga/redux-saga/issues/864
 flow-annotation-check
 https://devhints.io/flow
 https://blog.remix.com/working-with-enums-in-flow-529455138fd6
+https://gist.github.com/lambdahands/d19e0da96285b749f0ef
+https://medium.com/@fastphrase/integrating-flow-into-a-react-project-fbbc2f130eed
 
 */
 [options]

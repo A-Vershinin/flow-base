@@ -14,8 +14,7 @@ all=warn
 
 [options]
 module.name_mapper='^.*\.css$' -> 'css-module-flow'
-module.system=haste
-
+module.name_mapper='components' -> '<PROJECT_ROOT>/src/components'
 
 
 

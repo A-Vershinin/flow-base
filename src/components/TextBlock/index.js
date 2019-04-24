@@ -18,10 +18,9 @@ const TextBlock = ({ id, name, showMessage }: Props): Node => (
   </div>
 );
 
-TextBlock.defaultProps = {
-  id: "",
-  name: "",
-  showMessage: false
-};
+// TextBlock.defaultProps = {
+//   id: "",
+//   showMessage: false
+// };
 
 export default TextBlock;

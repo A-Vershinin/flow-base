@@ -31,5 +31,8 @@
   ],
   "devDependencies": {
     "flow-coverage-report": "^0.6.1"
-  }
+  },
+  "moduleRoots": [
+    "src/"
+  ]
 }
