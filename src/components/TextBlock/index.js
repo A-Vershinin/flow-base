@@ -5,9 +5,9 @@ import "./styles.css";
 import type { Node } from "react";
 
 type Props = {|
-  id: string,
+  id?: string,
   name: string,
-  showMessage: boolean
+  showMessage?: boolean
 |};
 
 const TextBlock = ({ id, name, showMessage }: Props): Node => (
@@ -18,9 +18,15 @@ const TextBlock = ({ id, name, showMessage }: Props): Node => (
   </div>
 );
 
-// TextBlock.defaultProps = {
-//   id: "",
-//   showMessage: false
-// };
+TextBlock.propTypes = {
+  id: string,
+  name: string.isRequired,
+  showMessage: bool
+};
+
+TextBlock.defaultProps = {
+  id: "",
+  showMessage: false
+};
 
 export default TextBlock;

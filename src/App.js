@@ -6,6 +6,7 @@ import TextBlock from "components/TextBlock";
 import Modal from "./Modal";
 import ListOfBrands from "./List";
 
+export type Hash<V, K = string> = { [K]: V };
 export type Brand = { id: number, name: string };
 type BasicState<B> = {| brands: Array<B> |};
 type State = BasicState<Brand>;
@@ -18,16 +19,16 @@ const brandsList: Array<Brand> = [
 ];
 
 class App extends Component<any, State> {
-  state = {
+  state: State = {
     brands: brandsList
   };
 
-  getRandomList = () => {
+  getRandomList = (): void => {
     const sortedArr = this.state.brands.sort(() => Math.random() - 0.5);
     this.setState({ brands: [...sortedArr] });
   };
 
-  render() {
+  render(): React$Node {
     const { brands } = this.state;
 
     return (

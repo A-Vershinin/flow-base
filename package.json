@@ -6,6 +6,7 @@
     "css-module-flow": "^1.0.0",
     "flow-bin": "^0.96.0",
     "flow-typed": "^2.5.1",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8",

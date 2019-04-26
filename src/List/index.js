@@ -1,15 +1,33 @@
-// @flow
+/* @flow */
 import React, { Component } from "react";
 import "./styles.css";
-import type { Brand } from "../App";
+import type { Brand, Hash } from "../App";
+import { number, string, arrayOf, shape, func } from "prop-types";
 
 type ListProps = {|
   items: Array<Brand>,
-  onMixBrands: () => void
+  data?: Hash<string>,
+  onMixBrands?: () => void
 |};
 
 class ListOfBrands extends Component<ListProps> {
-  render() {
+  static propTypes = {
+    items: arrayOf(
+      shape({
+        id: number,
+        name: string
+      })
+    ).isRequired,
+    data: shape({}),
+    onMixBrands: func,
+  };
+
+  static defaultProps = {
+    data: {},
+    onMixBrands: () => {}
+  };
+
+  render(): React$Node {
     const { items, onMixBrands } = this.props;
 
     return (

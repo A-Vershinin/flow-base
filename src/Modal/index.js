@@ -1,31 +1,41 @@
 /* @flow */
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+import { string } from "prop-types";
 import st from "./styles.module.css";
 
 type Props = {|
-  text: string
+  text?: string,
 |};
 type State = {|
   open: boolean
 |};
 
 class ModalComponent extends Component<Props, State> {
-  static propTypes: Props;
+  static propTypes = {
+    text: string,
+  };
+
   static defaultProps = {
     text: ""
   };
 
+  // Если state объявлен через объект и поле класса
+  /*
+  placeholder: string = "Welcome to open Modal!."; // типизация для поля класса
+  state: State = {
+    open: false
+  }
+  */
+
+  // Если state объявлен через constuctore и поле класса
+  placeholder: string;
   constructor(props: Props) {
     super(props);
     this.state = {
       open: false
     };
-
     this.placeholder = "Welcome to open Modal!.";
   }
-
-  placeholder: string; // типизация для поля класса
 
   showText = (e: SyntheticKeyboardEvent<HTMLButtonElement>): void => {
     // To access your button instance use `event.currentTarget`.
@@ -33,9 +43,9 @@ class ModalComponent extends Component<Props, State> {
     this.setState({ open: !this.state.open });
   };
 
-  closeText = () => this.setState({ open: !this.state.open });
+  closeText = (): void => this.setState({ open: !this.state.open });
 
-  render() {
+  render(): React$Node {
     const { open } = this.state;
     const { text } = this.props;
 
