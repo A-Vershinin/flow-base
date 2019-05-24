@@ -26,7 +26,6 @@ https://github.com/skovhus/css-modules-flow-types
 https://blog.callstack.io/type-checking-react-and-redux-thunk-with-flow-part-2-206ce5f6e705
 https://medium.freecodecamp.org/using-flow-with-babel-c04fdca8d14d
 https://codeburst.io/getting-started-with-flow-and-nodejs-b8442d3d2e57
-https://github.com/redux-saga/redux-saga/issues/864
 flow-annotation-check
 https://devhints.io/flow
 https://blog.remix.com/working-with-enums-in-flow-529455138fd6
@@ -35,12 +34,24 @@ https://medium.com/@fastphrase/integrating-flow-into-a-react-project-fbbc2f130ee
 https://medium.com/flow-type/supporting-react-forwardref-and-beyond-f8dd88f35544
 https://github.com/reduxjs/redux/tree/master/examples/todos-flow
 https://medium.com/flow-type/even-better-support-for-react-in-flow-25b0a3485627
+https://github.com/redux-saga/redux-saga/issues/864
 https://gist.github.com/retyui/533cc4e13949a70a64aa7959d95da22d
+https://blog.blueberry.io/sagas-reducer-actions-and-selectors-in-react-flow-1bb471035fb2
+https://www.grzegorowski.com/jest-tests-flow-type/
+https://stephenmann.io/post/how-to-setup-flow-with-create-react-app-and-visual-studio-code/
+https://medium.com/flow-type/upgrading-flow-codebases-40ef8dd3ccd8
+
+// Про connect
+https://gist.github.com/villesau/38ec8c821e9ba4062e1ee35d841890d4
+https://github.com/flow-typed/flow-typed/issues/3137
 
 */
 [options]
 // настройки flow если пути абсолютные в проекте
 module.name_mapper='common' -> '<PROJECT_ROOT>/src/common'
+
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=src
 
 
 //---> Поддержка типизации стилей через CSS модули в flow
@@ -94,9 +105,27 @@ export type ActionWithPayload<P> =
 
 module.name_mapper='&.*\.js' -> 'redux-actions'
 
+
 // Правильный конфиг для absolute path
 module.name_mapper='common' -> '<PROJECT_ROOT>/src/common'
 
 // Рабочий вариант CSSModule
 module.name_mapper='.*\(.scss\)' -> 'CSSModule'
 module.system=haste
+
+declare module CSSModule {
+  declare var exports: { [key: string]: string };
+  declare export default typeof exports;
+}
+
+
+// Типы для экшенов
+import { handleActions, type Reducer } from 'redux-actions';
+
+export type BaseAction =
+  $ReadOnly<{ type: string, error?: string }>;
+
+export type ActionWithPayload<P> =
+  $ReadOnly<{ ...BaseAction, payload: P }>;
+
+module.name_mapper='&.*\.js' -> 'redux-actions'

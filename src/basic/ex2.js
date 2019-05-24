@@ -31,6 +31,22 @@ type HaveBall = {
   total: ?number,
   position: Position
 };
+
+// означает, что тип или string, или undefined, или null.
+const message: ?string = null;
+
+/*
+А можно в типах юзать spread?
+Да, только лучше через ...$Exact<A>. Без Exact ругался на undefined.
+И если будут два поля одинаковых то тип объединиться а не презапишется
+*/
+type A = { kek: number }
+type B = {
+   ...A,
+   lol: string
+}
+
+
 type ActionDontHaveBall = "take position" | "take the ball";
 type DontHaveBall = {
   player?: Player,
@@ -65,3 +81,11 @@ const TicTacToe: {|
     position: { x: 0, y: 0 }
   }),
 };
+
+// Конкретный компонент:
+component = 'div' или () =><div/> // React$ElementType
+componentNode = <div/> // React$Element
+
+CompProps = { linkComp: 'string' | React$ComponentType<{href: string}>};
+<Comp  linkComp='a' /> // work
+<Comp  linkComp={(props{href: string}) => {}} /> // work

@@ -6,6 +6,7 @@
     "css-module-flow": "^1.0.0",
     "flow-bin": "^0.96.0",
     "flow-typed": "^2.5.1",
+    "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -20,7 +21,7 @@
     "eject": "react-scripts eject",
     "flow": "flow",
     "flow:deps": "flow-typed install --skip",
-    "flow:file": "flow coverage src/List/index.js --color",
+    "flow:file": "flow coverage src/utils/index.js --color",
     "flow:cover": "flow-coverage-report --exclude-non-flow --config ./flowcoverage.json",
     "flow:test": "flow-coverage-report --exclude-non-flow --config ./flowcoverage.json"
   },

@@ -62,6 +62,10 @@ function emptyFuncExpresion(): void {
 }
 emptyFuncExpresion();
 
+const method = (str: string, bool?: boolean, ...nums: Array<number>): void => {
+  // ...
+};
+
 // Тип параметра string, а тип возвращаемой функции Function
 const applySearchTerm = (searchTerm: string) => ({ searchTerm });
 applySearchTerm("22");
