@@ -2,6 +2,7 @@
 
 /*
  Ссылки на ресурсы
+https://www.saltycrane.com/flow-type-cheat-sheet/latest/
 https://medium.freecodecamp.org/incrementally-add-flow-type-checking-react-261fee015f80
 https://medium.freecodecamp.org/why-use-static-types-in-javascript-part-1-8382da1e0adb
 https://github.com/the-road-to-learn-react/react-flow-example/blob/greenkeeper/flow-bin-0.96.0/src/App.js
@@ -12,7 +13,10 @@ https://habr.com/ru/post/326304/
 https://habr.com/ru/post/326394/
 https://github.com/AlexanderShushunov/flow-in-the-big-project/blob/master/README.md
 https://www.youtube.com/watch?v=3Z4hWgG8y4o&feature=youtu.be
+Климов
+https://www.youtube.com/watch?v=9_GwX9O6DFE&list=PLvTBThJr861zvILAjREUakZ6E5l7h7lsZ&index=1
 https://github.com/codemix/flow-runtime
+https://github.com/facebook/flow/blob/master/website/en/docs/react/types.md
 https://medium.com/@tselishev.semen/fairy-tale-flow-world-8adfdda857ab
 https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-flow
 https://medium.com/@_asci/getting-started-with-nodejs-and-flow-part-2-6b40beb12c1b
@@ -34,16 +38,35 @@ https://medium.com/@fastphrase/integrating-flow-into-a-react-project-fbbc2f130ee
 https://medium.com/flow-type/supporting-react-forwardref-and-beyond-f8dd88f35544
 https://github.com/reduxjs/redux/tree/master/examples/todos-flow
 https://medium.com/flow-type/even-better-support-for-react-in-flow-25b0a3485627
+https://github.com/facebook/flow/issues/218
 https://github.com/redux-saga/redux-saga/issues/864
 https://gist.github.com/retyui/533cc4e13949a70a64aa7959d95da22d
-https://blog.blueberry.io/sagas-reducer-actions-and-selectors-in-react-flow-1bb471035fb2
 https://www.grzegorowski.com/jest-tests-flow-type/
 https://stephenmann.io/post/how-to-setup-flow-with-create-react-app-and-visual-studio-code/
 https://medium.com/flow-type/upgrading-flow-codebases-40ef8dd3ccd8
 
-// Про connect
+
+types and interfaces
+https://stackoverflow.com/questions/36782896/in-typescript-what-is-the-difference-between-type-and-interface/36783051#36783051
+
+
+
+// Про connect и Redux
 https://gist.github.com/villesau/38ec8c821e9ba4062e1ee35d841890d4
+https://blog.blueberry.io/sagas-reducer-actions-and-selectors-in-react-flow-1bb471035fb2
 https://github.com/flow-typed/flow-typed/issues/3137
+https://github.com/flow-typed/flow-typed/pull/3012
+https://github.com/facebook/flow/issues/4002
+
+
+// Про HOCs
+http://redsunsoft.com/2018/07/proper-flow-typing-for-a-higher-order-component-hoc-injecting-and-using-child-props/
+
+// with Immutable PropTypes
+https://medium.com/@williambeard/typing-react-components-with-flow-ad555673d229
+
+// Examples
+https://github.com/asci/flow-node-boilerplate Async Await
 
 */
 [options]
